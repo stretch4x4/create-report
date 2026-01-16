@@ -30,7 +30,7 @@ runs:
 
     - uses: swift-actions/setup-swift@v3
       with:
-        swift-version: "5.7"
+        swift-version: "5.9"
         skip-verify-signature: true
 
     - uses: actions/setup-python@v6
