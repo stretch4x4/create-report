@@ -2,6 +2,7 @@ name: Manual CI
 
 on:
   workflow_dispatch:
+  push:  # temp to register
 
 concurrency:
   group: ${{ github.ref }}
