@@ -28,7 +28,7 @@ runs:
         path: ~/.cache/pip
         key: ${{ runner.os }}-${{ env.GITHUB_ACTION_PATH }}-pip-cache
 
-    - uses: swift-actions/setup-swift@v3
+    - uses: swift-actions/setup-swift@v2.4.0
       with:
         swift-version: "5.7"
 
