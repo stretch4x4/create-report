@@ -20,20 +20,20 @@ jobs:
       - run: pip install -r requirements.txt
         shell: bash
       - run: swift test --enable-code-coverage
-      - uses: michaelhenry/swifty-code-coverage@v1.0.1
-        with:
-          build-path: .build
-          target: GithubChecksPackageTests.xctest
-          is-spm: true
-          output: "coverage/lcov.info"
-          output-artifact-name: "codecov-artifact"
-          ignore-filename-regex: ".build|Tests|Pods|Carthage|DerivedData|GHCheckCommand|URLSession"
-      - name: Upload to Codecov
-        run: |
-          bash <(curl https://codecov.io/bash) -f "coverage/*.info"
-        shell: bash
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#      - uses: michaelhenry/swifty-code-coverage@v1.0.1
+#        with:
+#          build-path: .build
+#          target: GithubChecksPackageTests.xctest
+#          is-spm: true
+#          output: "coverage/lcov.info"
+#          output-artifact-name: "codecov-artifact"
+#          ignore-filename-regex: ".build|Tests|Pods|Carthage|DerivedData|GHCheckCommand|URLSession"
+#      - name: Upload to Codecov
+#        run: |
+#          bash <(curl https://codecov.io/bash) -f "coverage/*.info"
+#        shell: bash
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   test-macos:
     runs-on: macos-12
@@ -46,21 +46,21 @@ jobs:
       - run: pip install -r requirements.txt
         shell: bash
       - run: swift test --enable-code-coverage
-      - uses: michaelhenry/swifty-code-coverage@v1.0.1
-        with:
-          build-path: .build
-          target: GithubChecksPackageTests.xctest
-          is-spm: true
-          output: "coverage/lcov.info"
-          output-artifact-name: "codeclimate-artifact"
-          ignore-filename-regex: ".build|Tests|Pods|Carthage|DerivedData|GHCheckCommand|URLSession"
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageLocations: |
-            coverage/lcov.info:lcov
+#      - uses: michaelhenry/swifty-code-coverage@v1.0.1
+#        with:
+#          build-path: .build
+#          target: GithubChecksPackageTests.xctest
+#          is-spm: true
+#          output: "coverage/lcov.info"
+#          output-artifact-name: "codeclimate-artifact"
+#          ignore-filename-regex: ".build|Tests|Pods|Carthage|DerivedData|GHCheckCommand|URLSession"
+#      - name: Publish code coverage
+#        uses: paambaati/codeclimate-action@v3.0.0
+#        env:
+#          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+#        with:
+#          coverageLocations: |
+#            coverage/lcov.info:lcov
 
   create-report:
     name: Report using ${{ matrix.os }}
