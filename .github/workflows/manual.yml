@@ -36,7 +36,7 @@ jobs:
 #          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   test-macos:
-    runs-on: macos-12
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
